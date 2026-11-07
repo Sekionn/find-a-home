@@ -1,0 +1,15 @@
+.fridge-magnet {
+  position: absolute;
+  z-index: 2;
+  top: -15px;
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 36px;
+  border-radius: 47% 52% 46% 51%;
+  background: radial-gradient(circle at 33% 25%, #f29780 0, #b9493a 52%, #81382e 100%);
+  box-shadow: inset 0 1px 2px #ffffff5b, inset 0 -3px 3px #0004, 2px 5px 3px #25281f5a;
+}
+.fridge-magnet::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--surface-grain), linear-gradient(145deg, transparent 29%, #f4e9cb60 30%, transparent 33%, transparent 67%, #251f1a30 68%, transparent 71%); box-shadow: inset 2px -1px 0 #d7c4a350; }
+.fridge-magnet--green { background: radial-gradient(circle at 33% 25%, #a9bd94, #638361 52%, #3d5d40); }
+.fridge-magnet--yellow { background: radial-gradient(circle at 33% 25%, #f7df9b, #d9ac4c 52%, #aa7e32); }
+.fridge-magnet--blue { background: radial-gradient(circle at 33% 25%, #a6c3d0, #618799 52%, #3f5e70); }

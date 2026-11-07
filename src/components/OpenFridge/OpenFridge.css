@@ -1,0 +1,118 @@
+.open-fridge {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+  color: #343e35;
+}
+.open-fridge::backdrop { background: transparent; }
+.open-fridge__interior {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: clamp(12px, 3vw, 40px) solid #b6bdac;
+  border-radius: 22px;
+  background:
+    var(--surface-grain),
+    radial-gradient(ellipse at 50% 0, #fffde7, transparent 65%),
+    linear-gradient(90deg, #7b8979, #d0d7c6 10%, #e1e6d7 50%, #c5cebc 90%, #6c7a6a);
+  box-shadow: inset 15px 0 35px #26392955, inset -15px 0 35px #26392955, inset 0 0 0 4px #6c7865;
+}
+.open-fridge__light {
+  position: absolute;
+  top: 15px;
+  left: calc(50% - 45px);
+  width: 90px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fffce1;
+  box-shadow: 0 0 55px 25px #fff4bc7a;
+}
+.open-fridge__shelf {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 16px;
+  border: 1px solid #a1b3a1;
+  border-radius: 3px;
+  background: linear-gradient(#f2f8e99c, #8b9e8e 45%, #c7d3c2 55%, #899b86);
+  box-shadow: 0 17px 22px #31422b2e;
+}
+.open-fridge__shelf--one { top: 25%; }
+.open-fridge__shelf--two { top: 48%; }
+.open-fridge__shelf--three { top: 71%; }
+.open-fridge__drawer {
+  position: absolute;
+  inset: 78% 6% 3%;
+  border: 3px solid #9bab98;
+  border-radius: 5px 5px 15px 15px;
+  background: linear-gradient(#dfe7d855, #a7b8a299);
+  box-shadow: inset 0 5px 10px #3c513026;
+}
+.open-fridge__portrait {
+  position: absolute;
+  inset: auto 0 0;
+  height: min(88dvh, 950px);
+  overflow: hidden;
+  pointer-events: none;
+}
+/* The supplied image includes a desk below the person. Keep that portion below
+   the viewport, so the portrait meets the bottom edge without a photo frame. */
+.open-fridge__portrait img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 190%;
+  width: auto;
+  max-width: none;
+  transform: translateX(-50%);
+  filter: drop-shadow(12px 5px 16px #1f302d55);
+}
+.open-fridge__close {
+  position: absolute;
+  z-index: 1;
+  top: max(22px, env(safe-area-inset-top));
+  right: max(22px, env(safe-area-inset-right));
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  padding: 7px 16px;
+  border: 1px solid #a7ad98;
+  border-radius: 3px;
+  background: var(--surface-grain), #f4f0dd;
+  color: inherit;
+  box-shadow: 2px 3px 5px #26392930;
+  cursor: pointer;
+}
+.open-fridge__close span { font-size: 27px; line-height: 1; }
+.open-fridge__close:hover { background-color: #e5ddbd; }
+.open-fridge[open] .open-fridge__interior { animation: fridge-interior-reveal 850ms ease-out both; }
+.open-fridge[open] .open-fridge__portrait { animation: fridge-portrait-reveal 900ms ease-out both; }
+.open-fridge[open] .open-fridge__close { animation: fridge-interior-reveal 600ms ease-out both; }
+@keyframes fridge-interior-reveal {
+  0% { opacity: 0; }
+  25% { opacity: .05; }
+  100% { opacity: 1; }
+}
+@keyframes fridge-portrait-reveal {
+  0%, 35% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 650px) {
+  .open-fridge__portrait { height: 78dvh; }
+  .open-fridge__close { top: max(18px, env(safe-area-inset-top)); right: 18px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .open-fridge[open] .open-fridge__interior,
+  .open-fridge[open] .open-fridge__portrait,
+  .open-fridge[open] .open-fridge__close { animation: none; }
+}

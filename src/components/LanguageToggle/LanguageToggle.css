@@ -1,0 +1,5 @@
+.language-toggle { display: flex; align-items: center; gap: 9px; font-size: 12px; }
+.language-toggle > span { color: #a4a89c; }
+.language-toggle button { border: 0; background: transparent; color: #687063; padding: 9px 2px; cursor: pointer; }
+.language-toggle button[aria-pressed="true"] { color: #334e3c; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.language-toggle button:hover { color: #222d24; }
