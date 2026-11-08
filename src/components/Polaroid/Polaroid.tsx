@@ -8,18 +8,25 @@ export type PolaroidProps = {
   captionKey: TranslationKey;
   altKey: TranslationKey;
   color: MagnetColor;
-  crop?: "welcome" | "show" | "second";
+  /** Crop alignment in percentages: 0 = left/top, 50 = center, 100 = right/bottom. */
+  focalPoint?: { x: number; y: number };
   className?: string;
   priority?: boolean;
 };
 
-export default function Polaroid({ src, captionKey, altKey, color, crop, className = "", priority = false }: PolaroidProps) {
+export default function Polaroid({ src, captionKey, altKey, color, focalPoint = { x: 50, y: 50 }, className = "", priority = false }: PolaroidProps) {
   const { t } = useLanguage();
   return (
     <figure className={`polaroid ${className}`}>
       <FridgeMagnet color={color} />
-      <div className={`polaroid__photo ${crop ? `polaroid__photo--${crop}` : ""}`}>
-        <img src={src} alt={t(altKey)} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} />
+      <div className="polaroid__photo">
+        <img
+          src={src}
+          alt={t(altKey)}
+          style={{ objectPosition: `${Math.max(0, Math.min(100, focalPoint.x))}% ${Math.max(0, Math.min(100, focalPoint.y))}%` }}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+        />
       </div>
       <figcaption>{t(captionKey)}</figcaption>
     </figure>

@@ -19,20 +19,26 @@ export default function Home() {
       <a className="skip-link" href="#introduction">{t("home.skip")}</a>
       <div className={`fridge${isFridgeOpen ? " fridge--open" : ""}`}>
         <header className="fridge__header">
-          <a className="fridge__brand" href="#">{t("home.brand")}<span aria-hidden="true">✳</span></a>
+          <a className="fridge__brand" href="#"><span aria-hidden="true">✳</span></a>
           <LanguageToggle />
         </header>
         <main id="introduction" tabIndex={-1}>
           <section className="fridge__intro" aria-labelledby="intro-title">
-            <p className="fridge__eyebrow">{t("home.eyebrow")}</p>
             <h1 id="intro-title">{t("home.title")}</h1>
             <p className="fridge__description">{t("home.intro")}</p>
             <a className="fridge__scroll" href="#fridge-board">{t("home.scroll")}</a>
             {showDecorativeMagnets && <span className="fridge__heart" aria-hidden="true">♡</span>}
           </section>
-          <section id="fridge-board" className="fridge-board" aria-label={t("home.boardLabel")}>
+          <section id="fridge-board" className="fridge-board">
             {fridgeBlocks.map((block) => block.kind === "photo" ? (
               <Polaroid key={block.id} {...block} className={`board-item board-item--${block.id}`} />
+            ) : block.kind === "spacer" ? (
+              <div
+                key={block.id}
+                className="board-spacer"
+                style={{ height: Math.max(0, block.height ?? 80) }}
+                aria-hidden="true"
+              />
             ) : (
               <section key={block.id} className={`board-item magnet-note board-item--${block.id}`}>
                 <MagnetText as="h2" textKey={block.headingKey} />

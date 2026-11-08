@@ -37,7 +37,7 @@
 .fridge__eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #66745d; margin: 0 0 22px; }
 .fridge__intro h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(64px, 7.5vw, 102px); font-weight: 400; letter-spacing: -5px; line-height: .98; white-space: pre-line; margin: 0 0 26px; color: #354e3d; }
 .fridge__intro h1 { position: relative; transform: rotate(-1.5deg); text-shadow: 1px 1px #ffffff80; }
-.fridge__intro h1::after { content: ""; position: absolute; width: 125px; height: 7px; bottom: -13px; left: calc(50% - 58px); border-bottom: 3px solid #a76348b0; border-radius: 40% 15% 50% 25%; transform: rotate(-4deg); }
+.fridge__intro h1::after { content: ""; position: absolute; width: 125px; height: 7px; bottom: -13px; left: calc(50% - 58px); border-radius: 40% 15% 50% 25%; transform: rotate(-4deg); }
 .fridge__description { white-space: pre-line; font-size: 14px; line-height: 1.9; margin: 0 0 27px; color: #5c6657; }
 .fridge__scroll { font-size: 11px; text-underline-offset: 6px; }
 .fridge__heart { position: absolute; right: 7%; top: 48%; font-family: Georgia, serif; font-size: 66px; color: #ac5c45; transform: rotate(16deg); }

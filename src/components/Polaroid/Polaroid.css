@@ -5,14 +5,8 @@
 .board-item--second .fridge-magnet { left: 28%; }
 .polaroid__photo { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: radial-gradient(ellipse at 40% 30%, #bdc9b4, #7a9380); box-shadow: inset 0 0 12px #273d2824; }
 .polaroid__photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--surface-grain), linear-gradient(130deg, #f4d49d35, transparent 55%, #34472a30); box-shadow: inset 0 0 30px #343a2945; }
-.polaroid__photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: sepia(.28) saturate(.65) contrast(.9); }
-/* Crop the supplied wide, transparent portraits within the photo window.
-   New regular photos can omit `crop` in homeContent.ts. */
-.polaroid__photo--welcome img { transform: scale(1.9); transform-origin: 50% 0; }
-.polaroid__photo--show { background: #b9c3cb; }
-.polaroid__photo--show img { object-position: right top; transform: scale(1.9); transform-origin: 50% 0; }
-.polaroid__photo--second { background: #c3b396; }
-.polaroid__photo--second img { object-position: right top; transform: scale(1.9); transform-origin: 50% 0; }
+/* Fill the square window; each photo's focalPoint controls the crop alignment. */
+.polaroid__photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: sepia(.28) saturate(.65) contrast(.9); }
 .polaroid figcaption { min-height: 62px; display: flex; align-items: center; justify-content: center; padding: 12px 2px; font-family: "Segoe Print", "Bradley Hand", cursive; font-size: 19px; color: #4d5146; text-align: center; }
 .polaroid figcaption { transform: rotate(-2deg); text-shadow: .3px .2px #4d514650; }
 .board-item--show figcaption { transform: rotate(2deg); }
