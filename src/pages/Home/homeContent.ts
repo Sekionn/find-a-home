@@ -21,11 +21,18 @@ export const fridgeBlocks: FridgeBlock[] = [
   { kind: "text", id: "intro", headingKey: "home.note.intro.heading", bodyKey: "home.note.intro.body" },
   { kind: "text", id: "about", headingKey: "home.note.about.heading", bodyKey: "home.note.about.body" },
   {
+    kind: "photo", id: "second", src: "/images/bananerne redder alle.jpeg",
+    captionKey: "home.photo.climber.caption", altKey: "home.photo.climber.alt",
+    color: "black",
+    focalPoint: { x: 50, y: 60 },
+  },
+  {
     kind: "photo", id: "show", src: "/images/the goat.jpg",
     captionKey: "home.photo.show.caption", altKey: "home.photo.show.alt",
     color: "yellow",
     focalPoint: { x: 50, y: 50 },
   },
+  { kind: "text", id: "about", headingKey: "home.note.about.heading.part2", bodyKey: "home.note.about.body.part2" },
   {
     kind: "photo", id: "second", src: "/images/silly me.jpeg",
     captionKey: "home.photo.second.caption", altKey: "home.photo.second.alt",
